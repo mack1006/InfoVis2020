@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>W02: task 03</title>
+	</head>
+	<body>
+	<p id="target"></p>
+	<form name="vec" id="vec">
+  		<label for="vec1">Vec1:</label><br>
+  		<input type="int" id="v00" name="v00">
+		<input type="int" id="v01" name="v01">
+		<input type="int" id="v02" name="v02"><br>
+  		<label for="vec2">Vec2:</label><br>
+  		<input type="int" id="v10" name="v10">
+		<input type="int" id="v11" name="v11">
+		<input type="int" id="v12" name="v12"><br>
+		<label for="vec3">Vec3:</label><br>
+  		<input type="int" id="v20" name="v20">
+		<input type="int" id="v21" name="v21">
+		<input type="int" id="v22" name="v22"><br>
+	</form>
+	<input type="button"
+		onclick="calc()"
+		value="calculate"/>
+	<script src="vec3.js"></script>
+	<script>
+	
+		var x0, y0, z0; // (input vertex 0)
+		var x1, y1, z1; // (input vertex 1)
+		var x2, y2, z2; // (input vertex 2)
+		function calc()
+		{
+			x0 = document.forms.vec.v00.value;
+			y0 = document.forms.vec.v01.value;
+			z0 = document.forms.vec.v02.value;
+			x1 = document.forms.vec.v10.value;
+			y1 = document.forms.vec.v11.value;
+			z1 = document.forms.vec.v12.value;
+			x2 = document.forms.vec.v20.value;
+			y2 = document.forms.vec.v21.value;
+			z2 = document.forms.vec.v22.value;
+			let v0 = new Vec3( x0, y0, z0 );
+			let v1 = new Vec3( x1, y1, z1 );
+			let v2 = new Vec3( x2, y2, z2 );
+			let S = AreaOfTriangle( v0, v1, v2 );
+			document.getElementById("target").innerHTML
+			="The area of triangle: "+S;
+		}
+		function AreaOfTriangle( v0, v1, v2 )
+		{
+			let len1,len2,len3;
+			len1 = len(v0,v1);
+			len2 = len(v1,v2);
+			len3 = len(v2,v0);
+			let s = (len1+len2+len3)/2;
+			return Math.sqrt(s*(s-len1)*(s-len2)*(s-len3))
+		}
+		function len(v0,v1)
+		{
+			return Math.sqrt((v0.x-v1.x)**2+(v0.y-v1.y)**2+(v0.z-v1.z)**2)
+		}
+	</script>
+	</body>
+</html>
