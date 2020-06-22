@@ -1,0 +1,14 @@
+{
+  "name": "@mack1006/summer-olympic-venue",
+  "main": "69d4f387fa2b7071@255.js",
+  "version": "255.0.0",
+  "homepage": "https://observablehq.com/@mack1006/summer-olympic-venue",
+  "author": {
+    "name": "mack1006",
+    "url": "https://observablehq.com/@mack1006"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
